@@ -9,6 +9,6 @@ class Config:
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SCHEDULER_API_ENABLED = True
-    SQLALCHEMY_ECHO = True
+    SQLALCHEMY_ECHO = False
     OPENWEATHERMAP_URL = 'http://api.openweathermap.org/data/2.5/weather?q={0}&appid=332aff71953e43412a946ab10190bc7a'
     cities_to_save_scheduler = ['London', 'New York']
