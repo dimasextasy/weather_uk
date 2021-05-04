@@ -18,20 +18,19 @@ def get_app():
     app_context = app.app_context()
     app_context.push()
     db.create_all()
-    print('create db')
     yield app, db
     db.session.remove()
     db.drop_all()
     app_context.pop()
-    print('drop db')
 
 
 @pytest.fixture(scope='module')
 def get_test_weather_response_json():
-    print(basedir)
-    with open(join(basedir, 'test/test_data/weather.response'), 'r') as file:
+    with open(join(basedir, 'tests/test_data/weather.response'), 'r') as file:
         response_text = file.read()
     try:
         return json.loads(response_text)
     except json.JSONDecodeError:
         assert False, "Something wrong with weather.response test data"
+    except FileNotFoundError:
+        assert False, "weather.response file is not found in tests/test_data"

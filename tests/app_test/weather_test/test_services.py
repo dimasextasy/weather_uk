@@ -82,27 +82,3 @@ def test_get_weather_from_api(get_test_weather_response_json):
         mock_get.return_value.json.return_value = get_test_weather_response_json
         result = get_weather_from_api('London')
     assert result == expected
-
-
-
-#
-#
-# def test_process_datetime_string():
-#     from utils.weather import process_datetime_string
-#     unix_time = 1619430815
-#     tz_hours_delta = 5
-#     expected = 'Mon 26 Apr 2021 14:53'
-#     result = process_datetime_string(unix_time, tz_hours_delta)
-#     assert result == expected
-#
-#
-# def test_make_weather_string():
-#     from utils.weather import make_weather_string
-#     test_data = 'London', 1619430815, 'broken clouds', 283.15, 'C'
-#     result = make_weather_string(*test_data)
-#     expected = 'London, Mon 26 Apr 2021 14:53, broken clouds, 10C'
-#     assert result == expected
-#
-#
-# def test_get_weather_string_from_api():
-#     pass

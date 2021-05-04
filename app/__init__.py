@@ -20,9 +20,6 @@ def create_app(config_class=Config):
     from app.weather import bp as weather_bp
     app.register_blueprint(weather_bp, url_prefix='/weather')
 
-    # if you don't wanna use a config, you can set options here:
-    # scheduler.api_enabled = True
-
     scheduler.init_app(app)
     from . import tasks
     if app.config['SCHEDULER_API_ENABLED']:

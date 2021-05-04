@@ -2,7 +2,7 @@ from utils.api_work import get_external_api_response
 from utils.error_handlers import InvalidUsage
 from config import Config
 
-from datetime import datetime, timezone, timedelta
+from datetime import datetime
 from collections import namedtuple
 
 WeatherData = namedtuple('WeatherData', ['city', 'weather', 'weather_datetime', 'temperature'])
@@ -45,12 +45,6 @@ def _make_weather_string(weather_data, temp_unit):
     )
 
 
-# def convert_unix_time_to_datetime(unix_time):
-#     # tz = timezone(timedelta(hours=tz)) if tz != 0 else datetime.now().astimezone().tzinfo
-#     response_datetime =
-#     return response_datetime
-
-
 def _convert_temperature_unit(kelvin_temp, type_of_weather):
     conversion_table = {
         'K': '{}K'.format(kelvin_temp),
@@ -58,5 +52,3 @@ def _convert_temperature_unit(kelvin_temp, type_of_weather):
         'F': '{}F'.format(round(9/5 * kelvin_temp - 459.67))
     }
     return conversion_table[type_of_weather]
-
-

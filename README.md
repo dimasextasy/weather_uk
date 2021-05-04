@@ -11,4 +11,8 @@ flask run
 Scheduled tasks are in the app/tasks.py
 Configuration of scheduled tasks are in the config.py
 
-#
+# Weather Service
+Main weather application in the app/weather folder.
+
+# Tests
+pytest tests
